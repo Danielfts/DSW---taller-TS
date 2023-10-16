@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="tallertypescript.css">
     <link rel="icon" href="data:,">
-    <title>Talelr TS</title>
+    <title>Taller TS</title>
     <script type="module" src="./scripts/main.js"></script>
 
 </head>
+
 <body>
     <h1>Taller TypeScript</h1>
     <table class="table" id="aprendiz">
@@ -18,8 +21,10 @@
     </table>
     <br>
     <h2>Cursos tomados</h2>
-    <input type="text" class="form-control" id="texto-busqueda" placeholder="Filtrar por nombre">
-    <button type="button" id="boton-filtro" class="btn btn-success">Aplicar</button>
+    <div class="filtro">
+        <input type="text" class="form-control" id="texto-busqueda" placeholder="Filtrar por nombre">
+        <button type="button" id="boton-filtro" class="btn btn-success">Aplicar</button>
+    </div>
     <table class="table" id="cursos">
         <thead class="thead-dark">
             <tr>
@@ -33,4 +38,5 @@
     </table>
 
 </body>
+
 </html>
