@@ -10,8 +10,10 @@ export var ap = new Aprendiz("Daniel Felipe", "Triviño Santana", "avatar.png", 
 console.log(ap.cursos);
 var aprendizTable = document.getElementById("aprendiz");
 var estadisticasTable = document.getElementById("estadisticas");
+var cursosTable = document.getElementById("cursos");
 mostrarDatosAprendiz(ap);
 mostrarEstadisticas(ap);
+mostrarCursosAprendiz(ap);
 function mostrarDatosAprendiz(aprendiz) {
     var tbodyAprendiz = document.createElement("tbody");
     tbodyAprendiz.innerHTML = "<tr><td colspan=2><img src=\"./".concat(aprendiz.avatar, "\" height:\"100\"></td></tr>\n    <tr><td>Nombres:</td><td>").concat(aprendiz.nombres, "</td></tr>\n    <tr><td>Apellidos:</td><td>").concat(aprendiz.apellidos, "</td></tr>\n    <tr><td>Nivel educativo:</td><td>").concat(aprendiz.nivelEducativo, "</td></tr>\n    <tr><td>Edad:</td><td>").concat(aprendiz.edad, "</td></tr>");
@@ -22,4 +24,14 @@ function mostrarEstadisticas(aprendiz) {
     var trelement = document.createElement("tr");
     trelement.innerHTML = "<td><b>Cursos certificados</b></td>\n    <td>".concat(numeroCertificados, "</td>");
     estadisticasTable.appendChild(trelement);
+}
+function mostrarCursosAprendiz(aprendiz) {
+    var cursosTBody = document.createElement("tbody");
+    for (var _i = 0, _a = aprendiz.cursos; _i < _a.length; _i++) {
+        var curso = _a[_i];
+        var trElement = document.createElement("tr");
+        trElement.innerHTML = "\n        <td>".concat(curso.nombre, "</td>\n        <td>").concat(curso.horas, "</td>\n        <td>").concat(curso.calificacion, "</td>\n        <td>").concat(curso.certificado, "</td>\n        <td>").concat(curso.anio, "</td>\n        ");
+        cursosTBody.appendChild(trElement);
+    }
+    cursosTable.appendChild(cursosTBody);
 }

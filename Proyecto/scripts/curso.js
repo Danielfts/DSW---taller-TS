@@ -4,6 +4,7 @@ var Curso = /** @class */ (function () {
         this.horas = horas;
         this.calificacion = calificacion;
         this.certificado = certificado;
+        this.anio = anio;
     }
     return Curso;
 }());
