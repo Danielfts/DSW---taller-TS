@@ -31,21 +31,19 @@ let textoBusqueda: HTMLInputElement = <HTMLInputElement>(
   document.getElementById("texto-busqueda")!
 );
 
-btnFiltro.onclick = filtrarPorNombre;
+btnFiltro.onclick = () => {
+  let text: string = textoBusqueda.value;
+  text = text == null ? "" : text;
+  cursosTable.getElementsByTagName("tbody")[0].remove();
+  let cursosFiltrados: Curso[] = ap.cursos.filter((c) => c.nombre.match(text));
+  mostrarCursosAprendiz(cursosFiltrados);
+};
 
 mostrarDatosAprendiz(ap);
 mostrarEstadisticas(ap);
 mostrarCursosAprendiz(ap.cursos);
 
-function filtrarPorNombre(): void {
-  let text: string = textoBusqueda.value;
-  text = text == null ? "" : text;
-  cursosTable.getElementsByTagName("tbody")[0].remove();
-  let cursosFiltrados: Curso[] = ap.cursos.filter(function (c: Curso) {
-    return c.nombre.match(text);
-  });
-  mostrarCursosAprendiz(cursosFiltrados);
-}
+// function filtrarPorNombre(): void
 
 function mostrarDatosAprendiz(aprendiz: Aprendiz): void {
   let tbodyAprendiz = document.createElement("tbody");
